@@ -14,18 +14,19 @@ import logging
 from gql import Client, gql
 from gql.transport.requests import RequestsHTTPTransport
 
-# from gql.transport.requests import log as requests_logger
+from gql.transport.requests import log as requests_logger
 
 # Configs (if this gets bigger, I'll provide a config file... or even Hashicorp Vault)
 # optional - logging.basicConfig(filename='gabs_graphql.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
-# this is not working anymore - requests_logger.setLevel(logging.WARNING)
-logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
+logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.ERROR)
+requests_logger.setLevel(logging.ERROR)
 
 API_KEY = os.environ.get('HARNESS_GRAPHQL_API_KEY')
 HARNESS_ACCOUNT = os.environ.get('HARNESS_ACCOUNT')
 API_ENDPOINT = "https://app.harness.io/gateway/api/graphql?accountId={0}".format(HARNESS_ACCOUNT)
 # OUTPUT_CSV_NAME_CONST = "temp_instanceStats_parsed.csv"
-OUTPUT_CSV_NAME_CONST = os.environ.get('HARNESS_GQL_CSV_NAME')
+#OUTPUT_CSV_NAME_CONST = os.environ.get('HARNESS_GQL_CSV_NAME')
+OUTPUT_CSV_NAME_CONST = "application_report.csv"
 
 
 def generic_graphql_query(query):
@@ -92,7 +93,8 @@ def parse_result_to_csv(gql_resultset):
         fc.writeheader()
         fc.writerows(gql_resultset)
 
-    return (gql_resultset)
+    with open(OUTPUT_CSV_NAME_CONST, 'r') as f:
+        print(f.read())
 
 
 if __name__ == '__main__':
@@ -100,12 +102,10 @@ if __name__ == '__main__':
 
     logging.info("Retrieving your current instanceStats GraphQL Query result set...")
     result_from_query = get_harness_account_applications()
-    print(result_from_query)
     logging.info("Done!")
 
     logging.info("Expanding all rows from the nested dict - and then putting it on the CSV: {0}".format(OUTPUT_CSV_NAME_CONST))
-    parsed_result_set = parse_result_to_csv(result_from_query)
+    parse_result_to_csv(result_from_query)
     logging.info("Done! Outputting the list content here:")
-    print(parsed_result_set)
 
     logging.info("Program Exited! Have a nice day!")
