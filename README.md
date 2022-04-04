@@ -12,10 +12,10 @@
 <br />
 <p align="center">
   <a href="https://github.com/gacerioni/harness_cg_application_report">
-    <img src="images/harness_banner.jpeg" alt="Logo">
+    <img src="https://github.com/gacerioni/harness_cg_groupless_user_remover/blob/main/images/harness_banner.jpeg" alt="Logo">
   </a>
 
-  <h3 align="center">GraphQL Python Projects - by Gabs the CSE (and now Chico)</h3>
+  <h3 align="center">GraphQL Python Projects - by Gabs the CSE</h3>
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
