@@ -75,7 +75,7 @@ The main goal of this project is to mantain a trustful source of Python GraphQL-
    ```
 3. Run the Container, passing the required Env Vars
    ```sh
-   docker run -e "HARNESS_ACCOUNT=<YOUR_ACCOUNT>" -e "HARNESS_GRAPHQL_API_KEY=<YOUR_API_KEY>" appreportcontainer
+   docker run -e "HARNESS_API_ENDPOINT=https://harness.bissinc.com/api/graphql?accountId=<YOUR_ACCOUNT_ID>" -e "HARNESS_GRAPHQL_API_KEY=<YOUR_API_KEY>" appreportcontainer
    ```
 
 ### Old School Installation and Usage
@@ -90,7 +90,7 @@ The main goal of this project is to mantain a trustful source of Python GraphQL-
    ```
 3. Export the required variables (Just to avoid Secrets, KMS, Vaults, etc, to keep this project simple)
    ```sh
-   export HARNESS_ACCOUNT=<YOUR_ACCOUNT>
+   export HARNESS_API_ENDPOINT=https://harness.bissinc.com/api/graphql?accountId=<YOUR_ACCOUNT_ID>
    export HARNESS_GRAPHQL_API_KEY=<YOUR_API_KEY>
    ```
 
