@@ -44,7 +44,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-The main goal of this project is to mantain a trustful source of Python GraphQL-related automations, to help Harness Customers.
+The main goal of this project is to maintain a trustful source of Python GraphQL-related automations, to help Harness Customers.
 
 
 <!-- GETTING STARTED -->
@@ -75,7 +75,7 @@ The main goal of this project is to mantain a trustful source of Python GraphQL-
    ```
 3. Run the Container, passing the required Env Vars
    ```sh
-   docker run -e "HARNESS_API_ENDPOINT=https://harness.bissinc.com/api/graphql?accountId=<YOUR_ACCOUNT_ID>" -e "HARNESS_GRAPHQL_API_KEY=<YOUR_API_KEY>" appreportcontainer
+   docker run -e "HARNESS_API_ENDPOINT=https://<YOUR_ON_PREM_DNS>/api/graphql?accountId=<YOUR_ACCOUNT_ID>" -e "HARNESS_GRAPHQL_API_KEY=<YOUR_API_KEY>" appreportcontainer
    ```
 
 ### Old School Installation and Usage
@@ -84,7 +84,7 @@ The main goal of this project is to mantain a trustful source of Python GraphQL-
    ```sh
    git clone https://github.com/gacerioni/harness_cg_application_report.git
    ```
-2. Install the project dependecies (very simple stuff, meant to deal with requests, json, html)
+2. Install the project dependencies (very simple stuff, meant to deal with requests, json, html)
    ```sh
    pip install -r requirements.txt
    ```
