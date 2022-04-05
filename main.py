@@ -21,11 +21,10 @@ from gql.transport.requests import log as requests_logger
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.ERROR)
 requests_logger.setLevel(logging.ERROR)
 
-API_KEY = os.environ.get('HARNESS_GRAPHQL_API_KEY')
-HARNESS_ACCOUNT = os.environ.get('HARNESS_ACCOUNT')
-API_ENDPOINT = "https://app.harness.io/gateway/api/graphql?accountId={0}".format(HARNESS_ACCOUNT)
-# OUTPUT_CSV_NAME_CONST = "temp_instanceStats_parsed.csv"
 #OUTPUT_CSV_NAME_CONST = os.environ.get('HARNESS_GQL_CSV_NAME')
+#HARNESS_ACCOUNT = os.environ.get('HARNESS_ACCOUNT')
+API_KEY = os.environ.get('HARNESS_GRAPHQL_API_KEY')
+API_ENDPOINT = os.environ.get('HARNESS_API_ENDPOINT')
 OUTPUT_CSV_NAME_CONST = "application_report.csv"
 
 
